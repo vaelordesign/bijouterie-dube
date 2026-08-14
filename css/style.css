@@ -1,0 +1,611 @@
+/* =========================================================================
+   Bijouterie Dubé — feuille de style
+   Palette : noir anthracite, or chaud en dégradé, fond ivoire, touche bordeaux
+   ========================================================================= */
+
+:root {
+  --noir: #16151A;
+  --noir-clair: #211F27;
+  --or-fonce: #B8923D;
+  --or: #C9A24B;
+  --or-clair: #E4C878;
+  --ivoire: #FAF7F0;
+  --ivoire-fonce: #F0E9D8;
+  --bordeaux: #5C1A2B;
+  --texte: #2A2620;
+  --texte-doux: #6B6558;
+  --blanc: #FFFFFF;
+
+  --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --rayon: 4px;
+  --ombre: 0 10px 30px rgba(22, 21, 26, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--sans);
+  color: var(--texte);
+  background: var(--ivoire);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img, svg { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+.conteneur {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--noir);
+  margin: 0 0 16px;
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+
+h2 em, h1 em {
+  font-style: normal;
+  background: linear-gradient(120deg, var(--or-fonce), var(--or-clair));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.suptitre {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--or-fonce);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.entete-section {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.entete-section p {
+  color: var(--texte-doux);
+  font-size: 1.03rem;
+}
+
+/* ---------- boutons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.98rem;
+  text-align: center;
+  white-space: normal;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-or {
+  background: linear-gradient(120deg, var(--or-fonce), var(--or-clair));
+  color: var(--noir);
+  box-shadow: 0 8px 22px rgba(201, 162, 75, 0.35);
+}
+
+.btn-or:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(201, 162, 75, 0.45); }
+
+.btn-contour {
+  background: transparent;
+  color: var(--ivoire);
+  border: 1.5px solid rgba(250, 247, 240, 0.5);
+}
+
+.btn-contour:hover { border-color: var(--ivoire); transform: translateY(-2px); }
+
+.btn-contour-noir {
+  background: transparent;
+  color: var(--noir);
+  border: 1.5px solid rgba(22, 21, 26, 0.35);
+}
+
+.btn-contour-noir:hover { border-color: var(--noir); transform: translateY(-2px); }
+
+/* ---------- en-tête ---------- */
+
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: rgba(250, 247, 240, 0.94);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(22, 21, 26, 0.08);
+}
+
+.entete-barre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px;
+}
+
+.marque {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--noir);
+}
+
+.marque .logo-icone { width: 34px; height: 34px; flex-shrink: 0; }
+
+.marque .nom-marque { display: flex; flex-direction: column; line-height: 1.15; }
+
+.marque .depuis { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.12em; color: var(--or-fonce); font-weight: 600; }
+
+.nav-entete { display: none; align-items: center; gap: 28px; font-size: 0.94rem; font-weight: 500; }
+
+.nav-entete a { position: relative; padding: 4px 0; }
+.nav-entete a:hover { color: var(--or-fonce); }
+
+.tel-entete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--noir);
+  padding: 10px 16px;
+  border-radius: 100px;
+  background: var(--ivoire-fonce);
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.tel-entete svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--or-fonce); }
+
+@media (min-width: 900px) {
+  .nav-entete { display: flex; }
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  background: var(--noir);
+  color: var(--ivoire);
+  overflow: hidden;
+  padding: 84px 0 90px;
+}
+
+.hero-fond {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.hero-fond svg { width: 100%; height: 100%; }
+
+.hero-contenu {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero-blason { width: 74px; height: 74px; margin: 0 auto 26px; }
+
+.hero h1 {
+  color: var(--ivoire);
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero p.intro {
+  font-size: clamp(1.02rem, 2.4vw, 1.18rem);
+  color: rgba(250, 247, 240, 0.82);
+  max-width: 560px;
+  margin: 0 auto 34px;
+}
+
+.hero-boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  justify-content: center;
+  margin-top: 46px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(250, 247, 240, 0.14);
+}
+
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: rgba(250, 247, 240, 0.78);
+}
+
+.hero-badge svg { width: 20px; height: 20px; color: var(--or-clair); flex-shrink: 0; }
+
+.hero-badge b { color: var(--or-clair); font-weight: 700; }
+
+/* ---------- section générique ---------- */
+
+section { padding: 84px 0; }
+
+.section-sombre {
+  background: var(--noir);
+  color: var(--ivoire);
+}
+
+.section-sombre h2, .section-sombre h3 { color: var(--ivoire); }
+.section-sombre .entete-section p { color: rgba(250, 247, 240, 0.72); }
+
+.section-creme { background: var(--ivoire-fonce); }
+
+/* ---------- histoire ---------- */
+
+.histoire-grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.histoire-visuel {
+  display: flex;
+  justify-content: center;
+}
+
+.histoire-visuel svg { width: 100%; max-width: 380px; height: auto; }
+
+.histoire-texte p { margin: 0 0 18px; color: var(--texte-doux); font-size: 1.02rem; }
+
+.histoire-texte strong { color: var(--noir); }
+
+.frise {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 30px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.frise li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.frise .annee {
+  flex-shrink: 0;
+  width: 74px;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--or-fonce);
+  font-weight: 700;
+  padding-top: 2px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.frise .desc { color: var(--texte-doux); }
+.frise .desc strong { color: var(--texte); }
+
+.freres {
+  display: flex;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 20px;
+  border-radius: var(--rayon);
+  background: var(--ivoire-fonce);
+  align-items: center;
+}
+
+.freres svg { width: 46px; height: 46px; flex-shrink: 0; }
+
+.freres p { margin: 0; font-size: 0.95rem; }
+
+@media (min-width: 860px) {
+  .histoire-grille { grid-template-columns: 0.85fr 1.15fr; }
+}
+
+/* ---------- services ---------- */
+
+.services-grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+.service-carte {
+  background: var(--blanc);
+  border: 1px solid rgba(22, 21, 26, 0.07);
+  border-radius: var(--rayon);
+  padding: 30px 26px;
+  box-shadow: var(--ombre);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-carte:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(22,21,26,0.14); }
+
+.service-icone {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 18px;
+  color: var(--or-fonce);
+}
+
+.service-carte h3 { font-size: 1.2rem; margin-bottom: 10px; }
+
+.service-carte p { color: var(--texte-doux); margin: 0; font-size: 0.95rem; }
+
+@media (min-width: 640px) {
+  .services-grille { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .services-grille { grid-template-columns: repeat(3, 1fr); }
+}
+
+.marques-ligne {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.marques-ligne .suptitre { display: block; margin-bottom: 18px; }
+
+.marques-liste {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.marque-pastille {
+  padding: 10px 22px;
+  border-radius: 100px;
+  border: 1px solid rgba(22, 21, 26, 0.15);
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  color: var(--noir);
+  background: var(--blanc);
+}
+
+/* ---------- avis ---------- */
+
+.avis-bloc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
+}
+
+.avis-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.avis-chiffre {
+  font-family: var(--serif);
+  font-size: clamp(3.2rem, 9vw, 5rem);
+  line-height: 1;
+  color: var(--or-clair);
+}
+
+.avis-etoiles { display: flex; gap: 6px; }
+.avis-etoiles svg { width: 26px; height: 26px; color: var(--or-clair); }
+
+.avis-souslegende {
+  font-size: 1.05rem;
+  color: rgba(250, 247, 240, 0.85);
+}
+
+.avis-souslegende strong { color: var(--ivoire); }
+
+.avis-citation {
+  max-width: 560px;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(250, 247, 240, 0.82);
+  margin-top: 8px;
+}
+
+/* ---------- horaires / contact ---------- */
+
+.contact-grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+.contact-carte {
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  padding: 30px;
+  box-shadow: var(--ombre);
+  border: 1px solid rgba(22,21,26,0.06);
+}
+
+.contact-carte h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+}
+
+.contact-carte h3 svg { width: 24px; height: 24px; color: var(--or-fonce); flex-shrink: 0; }
+
+.horaires-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+
+.horaires-table tr { border-bottom: 1px solid rgba(22,21,26,0.06); }
+.horaires-table tr:last-child { border-bottom: none; }
+
+.horaires-table td { padding: 9px 0; }
+.horaires-table td:first-child { color: var(--texte); font-weight: 600; }
+.horaires-table td:last-child { text-align: right; color: var(--texte-doux); }
+
+.horaires-table tr.ferme td:last-child { color: var(--bordeaux); font-weight: 600; }
+
+.coord-liste { list-style: none; margin: 0 0 22px; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+
+.coord-liste li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.96rem; }
+
+.coord-liste svg { width: 20px; height: 20px; color: var(--or-fonce); flex-shrink: 0; margin-top: 2px; }
+
+.carte-conteneur {
+  border-radius: var(--rayon);
+  overflow: hidden;
+  border: 1px solid rgba(22,21,26,0.08);
+  box-shadow: var(--ombre);
+}
+
+.carte-conteneur iframe { width: 100%; height: 320px; border: 0; display: block; }
+
+@media (min-width: 900px) {
+  .contact-grille { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- appel à l'action ---------- */
+
+.cta {
+  background: linear-gradient(120deg, var(--noir), #241f2b);
+  color: var(--ivoire);
+  text-align: center;
+  padding: 70px 0;
+}
+
+.cta h2 { color: var(--ivoire); margin-bottom: 14px; }
+.cta p { color: rgba(250,247,240,0.75); max-width: 480px; margin: 0 auto 30px; }
+
+.cta-boutons { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+/* ---------- pied de page ---------- */
+
+.pied {
+  background: var(--noir);
+  color: rgba(250, 247, 240, 0.65);
+  padding: 46px 0 26px;
+  font-size: 0.9rem;
+}
+
+.pied-haut {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid rgba(250,247,240,0.1);
+  margin-bottom: 20px;
+}
+
+.pied-marque {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--ivoire);
+}
+
+.pied-marque svg { width: 30px; height: 30px; }
+
+.pied-liens { display: flex; flex-wrap: wrap; gap: 20px; }
+.pied-liens a:hover { color: var(--or-clair); }
+
+.pied-bas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .pied-haut { flex-direction: row; align-items: center; justify-content: space-between; }
+  .pied-bas { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+
+/* ---------- bouton d'appel flottant (mobile) ---------- */
+
+.appel-flottant {
+  position: fixed;
+  right: 16px;
+  bottom: 84px;
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 100px;
+  background: linear-gradient(120deg, var(--or-fonce), var(--or-clair));
+  color: var(--noir);
+  font-weight: 700;
+  font-size: 0.92rem;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.3);
+}
+
+.appel-flottant svg { width: 19px; height: 19px; }
+
+@media (min-width: 900px) {
+  .appel-flottant { display: none; }
+}
+
+/* ---------- utilitaires ---------- */
+
+.visuellement-masque {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 480px) {
+  section { padding: 60px 0; }
+  .hero { padding: 64px 0 70px; }
+}
