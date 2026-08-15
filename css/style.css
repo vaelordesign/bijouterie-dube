@@ -609,3 +609,16 @@ section { padding: 84px 0; }
   section { padding: 60px 0; }
   .hero { padding: 64px 0 70px; }
 }
+
+/* ===== Photo de héros + fond animé (14 août 2026) ===== */
+.hero-fond{ overflow: hidden; }
+.hero-fond img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-voile{ position: absolute; inset: 0; z-index: 1;
+  /* Vignette : sombre au centre, là où passe le texte ; plus clair sur les bords,
+     pour que la photo reste visible. */
+  background: radial-gradient(125% 95% at 50% 50%, rgba(22,21,26,.90) 0%, rgba(22,21,26,.87) 38%, rgba(22,21,26,.66) 78%, rgba(22,21,26,.58) 100%); }
+.hero-contenu{ z-index: 2; }
+@media (prefers-reduced-motion: no-preference){
+  @keyframes v3ken{ from{ transform: scale(1.05); } to{ transform: scale(1.13); } }
+  .hero-fond img{ animation: v3ken 26s ease-in-out infinite alternate; will-change: transform; }
+}
