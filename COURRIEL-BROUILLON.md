@@ -14,7 +14,7 @@ Bonjour,
 
 Je vous ai construit un site pour la mettre en avant :
 
-https://charlesmartel2506.github.io/bijouterie-dube/
+https://vaelordesign.github.io/bijouterie-dube/
 
 Gratuit, aucune obligation. Si ça vous parle, on en reparle.
 
